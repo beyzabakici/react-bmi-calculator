@@ -3,11 +3,20 @@ import './App.css';
 import Form from  './components/Form';
 
 function App() {
-  const [height, setHeight] = React.useState('0');
-  const [weight, setWeight] = React.useState('0');
-  const [heightInputChange, setHeightInputChange] = React.useState('');
-  const [weightInputChange, setWeightInputChange] = React.useState('');
+  const [height, setHeight] = React.useState('');
+  const [weight, setWeight] = React.useState('');
 
+  const heightInputChange = (e) => {
+    const newHeight = e.target.value;
+    setHeight(newHeight);
+    console.log(newHeight);
+  };
+
+const weightInputChange = (e) => {
+    const newWeight = e.target.value;
+    setWeight(newWeight);
+    console.log(newWeight);
+  };
 
 function appTitle() {
   return <h1 className='App-title'>BODY MASS INDEX</h1>
@@ -17,10 +26,10 @@ function appTitle() {
     <div className="App">
       {appTitle()}
       <Form
-        heightInput={setHeight}
-        onHeightInputChange={setHeightInputChange} 
-        weightInput={setWeight}
-        onWeightInputChange={setWeightInputChange}
+        heightInput={height}
+        onHeightInputChange={(e) => heightInputChange(e)} 
+        weightInput={weight}
+        onWeightInputChange={(e) => weightInputChange(e)}
         addValue={() => {}}
       />
     </div>  

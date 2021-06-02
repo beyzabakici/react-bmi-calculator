@@ -1,4 +1,5 @@
 import React from 'react';
+import './Form.css';
 import SwitchButton from './SwitchButton/SwitchButton';
 
 export default function Form({ heightInput, onHeightInputChange, weightInput, onWeightInputChange, addValue }) {
@@ -9,26 +10,33 @@ export default function Form({ heightInput, onHeightInputChange, weightInput, on
   };
 
   return (
-      <form className="form" onSubmit={handleSubmit}>
-      <input
-        className='input'
-        type="number"
-        placeholder='Plase enter to yours weight'
-        value={weightInput}
-        onChange={onWeightInputChange}
-        className="form-control"
-      />
-      <input
-        className='input'
-        type="number"
-        value={heightInput}
-        onChange={onHeightInputChange}
-        className="form-control"
-      />
-      <button onClick={addValue} className="btn btn-danger">
-        Calculate!
+    <form className="form" onSubmit={handleSubmit}>
+      <div className='input-container'>
+        <div className='input'>
+          <input
+            type='number'
+            placeholder='Plase enter to yours weight'
+            value={weightInput}
+            onChange={onWeightInputChange}
+            className="form-control"
+          />
+        </div>
+        <div>
+          <input
+            type='number'
+            placeholder='Plase enter to yours height'
+            value={heightInput}
+            onChange={onHeightInputChange}
+            className="form-control"
+          />
+        </div>
+      </div>
+      <div className='button-container'>
+        <button onClick={addValue} className="btn btn-outline-primary">
+          Calculate!
       </button>
-      <SwitchButton />
+        <SwitchButton />
+      </div>
     </form>
   )
 }

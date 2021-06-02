@@ -1,5 +1,21 @@
 .form {
-  display: flex;
-  flex-direction: row;
 }
 
+.input-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
+ padding-bottom: 10px;
+}
+
+.button-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
