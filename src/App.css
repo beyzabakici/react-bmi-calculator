@@ -1,6 +1,17 @@
+* {
+ padding-top: 20px;
+}
 .App {
-  width: 600px;
+  width: 800px;
+  height: max-content;
   margin: 0 auto;
+  background-color: gainsboro;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+    
 }
 
 .App-title {

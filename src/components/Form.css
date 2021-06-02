@@ -1,4 +1,7 @@
 .form {
+  padding: 10px 10px 100px 10px;
+  width: 400px;
+  align-items: baseline;
 }
 
 .input-container {
