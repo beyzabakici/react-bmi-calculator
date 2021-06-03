@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Form from './components/Form';
+import BmiValue from './components/BmiValue/BmiValue'
 
 function App() {
   const [height, setHeight] = React.useState('');
@@ -10,14 +11,14 @@ function App() {
 
   React.useEffect(() => {
 
-  },[remember]);
+  }, [remember]);
 
   const heightInputChange = (e) => {
     setHeight(e.target.value);
   };
 
   const weightInputChange = (e) => {
-    setWeight(e.target.value);  
+    setWeight(e.target.value);
   };
 
   function appTitle() {
@@ -27,23 +28,30 @@ function App() {
   function bmiCalculate() {
     const newBmi = Math.floor(weight / Math.pow(height, 2) * 10000);
     setBmi(newBmi);
+    console.log(newBmi);
   }
 
+
   return (
-    <div className="App">
+    <div className="App container">
       {appTitle()}
       <Form
         heightInput={
           remember ? JSON.parse(localStorage.getItem('userHeight')) : height
         }
-        onHeightInputChange={(e) => heightInputChange(e)}
+        onHeightInputChange={(e) => {
+          remember ? setHeight(localStorage.getItem('userHeight')) :  heightInputChange(e);
+        }}
         weightInput={
           remember ? JSON.parse(localStorage.getItem('userWeight')) : weight
         }
-        onWeightInputChange={(e) => weightInputChange(e)}
+        onWeightInputChange={(e) => {
+          remember ? setWeight(localStorage.getItem('userWeight')) :  weightInputChange(e);
+        }}
         addValue={() => bmiCalculate()}
-        rememberData={() => remember ? setRemember(false): setRemember(true)}
+        rememberData={() => remember ? setRemember(false) : setRemember(true)}
       />
+      <BmiValue bmi={bmi} />
     </div>
   );
 }
