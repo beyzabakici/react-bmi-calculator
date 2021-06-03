@@ -6,13 +6,18 @@ function App() {
   const [height, setHeight] = React.useState('');
   const [weight, setWeight] = React.useState('');
   const [bmi, setBmi] = React.useState();
+  const [remember, setRemember] = React.useState(false);
+
+  React.useEffect(() => {
+
+  },[remember]);
 
   const heightInputChange = (e) => {
     setHeight(e.target.value);
   };
 
   const weightInputChange = (e) => {
-    setWeight(e.target.value);
+    setWeight(e.target.value);  
   };
 
   function appTitle() {
@@ -28,14 +33,17 @@ function App() {
     <div className="App">
       {appTitle()}
       <Form
-        heightInput={height}
+        heightInput={
+          remember ? JSON.parse(localStorage.getItem('userHeight')) : height
+        }
         onHeightInputChange={(e) => heightInputChange(e)}
-        weightInput={weight}
+        weightInput={
+          remember ? JSON.parse(localStorage.getItem('userWeight')) : weight
+        }
         onWeightInputChange={(e) => weightInputChange(e)}
         addValue={() => bmiCalculate()}
-        rememberData={() => console.log('hatirla ulan')}
+        rememberData={() => remember ? setRemember(false): setRemember(true)}
       />
-
     </div>
   );
 }

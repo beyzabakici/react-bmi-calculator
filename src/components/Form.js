@@ -8,8 +8,8 @@ export default function Form({ heightInput, onHeightInputChange, weightInput, on
   };
 
   function writeUserData() {
-    localStorage.setItem('userHeight)', JSON.stringify(heightInput));
-    localStorage.setItem('userWeight)', JSON.stringify(weightInput));
+    localStorage.setItem('userHeight', JSON.stringify(heightInput));
+    localStorage.setItem('userWeight', JSON.stringify(weightInput));
   }
 
   return (
