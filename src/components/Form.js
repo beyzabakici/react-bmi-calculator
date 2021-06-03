@@ -1,13 +1,16 @@
 import React from 'react';
 import './Form.css';
-import SwitchButton from './SwitchButton/SwitchButton';
+import RememberButton from './RememberButton/RememberButton';
 
-export default function Form({ heightInput, onHeightInputChange, weightInput, onWeightInputChange, addValue }) {
-  const [isGlobalValue, setIsGlobalValue] = React.useState(false);
-
+export default function Form({ heightInput, onHeightInputChange, weightInput, onWeightInputChange, addValue, rememberData }) {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
+  function writeUserData() {
+    localStorage.setItem('userHeight)', JSON.stringify(heightInput));
+    localStorage.setItem('userWeight)', JSON.stringify(weightInput));
+  }
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -32,10 +35,10 @@ export default function Form({ heightInput, onHeightInputChange, weightInput, on
         </div>
       </div>
       <div className='button-container'>
-        <button onClick={addValue} className="btn btn-outline-primary">
-          Calculate!
+        <button onClick={addValue, writeUserData} className="btn btn-outline-primary">
+          Calculate !
       </button>
-        <SwitchButton />
+        <RememberButton isMarked={rememberData}/>
       </div>
     </form>
   )
