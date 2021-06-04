@@ -1,17 +1,12 @@
 import React from 'react';
 import './App.css';
 import Form from './components/Form';
-import BmiValue from './components/BmiValue/BmiValue'
 
 function App() {
   const [height, setHeight] = React.useState('');
   const [weight, setWeight] = React.useState('');
   const [bmi, setBmi] = React.useState();
   const [remember, setRemember] = React.useState(false);
-
-  React.useEffect(() => {
-
-  }, [remember]);
 
   const heightInputChange = (e) => {
     setHeight(e.target.value);
@@ -28,7 +23,10 @@ function App() {
   function bmiCalculate() {
     const newBmi = Math.floor(weight / Math.pow(height, 2) * 10000);
     setBmi(newBmi);
-    console.log(newBmi);
+    console.log(bmi);
+  }
+  function handleRemember() {
+    !remember ? setRemember(true) : setRemember(false)
   }
 
 
@@ -49,9 +47,8 @@ function App() {
           remember ? setWeight(localStorage.getItem('userWeight')) :  weightInputChange(e);
         }}
         addValue={() => bmiCalculate()}
-        rememberData={() => remember ? setRemember(false) : setRemember(true)}
+        rememberData={() => handleRemember()}
       />
-      <BmiValue bmi={bmi} />
     </div>
   );
 }

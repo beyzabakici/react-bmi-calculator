@@ -3,11 +3,15 @@ import './Form.css';
 import RememberButton from './RememberButton/RememberButton';
 
 export default function Form({ heightInput, onHeightInputChange, weightInput, onWeightInputChange, addValue, rememberData }) {
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
   function writeUserData() {
+    if (!heightInput.trim() && !weightInput.trim()) {
+      return 
+    }  
     localStorage.setItem('userHeight', JSON.stringify(heightInput));
     localStorage.setItem('userWeight', JSON.stringify(weightInput));
   }
