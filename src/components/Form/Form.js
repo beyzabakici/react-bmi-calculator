@@ -2,6 +2,7 @@ import React from 'react';
 import './Form.css';
 import { useHistory } from "react-router-dom";
 import RememberCheckbox from '../RememberCheckbox/RememberCheckbox';
+import RotateButton from '../RotateButton/RotateButton';
 
 export default function Form() {
   const history = useHistory();
@@ -52,6 +53,7 @@ export default function Form() {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <RotateButton title='< What is BMI ?' rotate={'info'} />
       <div className='input-container'>
         <div className='input'>
           <input

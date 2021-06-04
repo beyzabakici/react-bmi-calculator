@@ -1,4 +1,5 @@
 import React from 'react';
+import RotateButton from '../RotateButton/RotateButton';
 import './BmiValueArea.css';
 
 export default function BmiValueArea() {
@@ -21,12 +22,10 @@ export default function BmiValueArea() {
     else
       return <h3> <strong> UNDERWEİGHT </strong> Your result is underweihgt. You should gain more weight.</h3>
   }
-  //   Below 18.5	Underweight  Your result is underweihgt. You should gain more weight.
-  // 18.5 – 24.9	Normal       Your result is fine.
-  // 25.0 – 29.9	Overweight   Your result is overweight. You should lost weight.
-  // 30.0 and above	Obese      Your resul is obese. You should see a doctor.
+
   return (
     <div className='container'>
+      <RotateButton title='< Back' rotate='' />
       <h2 className='value'>
         {bmi}
       </h2>

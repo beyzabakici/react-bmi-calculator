@@ -1,0 +1,11 @@
+.button {
+  border-color: transparent;
+  background-color: transparent;
+  font-size: x-large;
+  font-weight: 600;
+  color: grey;
+  position: absolute; 
+  left: 10px;
+  top: 0px;
+  
+}

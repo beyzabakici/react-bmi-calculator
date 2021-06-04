@@ -11,7 +11,12 @@
   color: blue;
 }
 
+strong{
+  text-decoration: underline;
+  padding: 10px;
+}
+
 .description {
   color: gray;
-
+  align-items: center;
 }
