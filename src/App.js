@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
+import { Switch, Route } from "react-router-dom";
 import Form from './components/Form/Form';
+import BmiValueArea from './components/BmiValueArea/BmiValueArea';
+
 
 function App() {
 
@@ -8,10 +11,13 @@ function App() {
     return <h1 className='App-title'>BODY MASS INDEX</h1>
   }
 
-  return (
+  return (  
     <div className="App container">
       {appTitle()}
-      <Form />
+      <Switch>
+        <Route path='/' exact={true} component={Form} />
+        <Route  path='/result' component={BmiValueArea}/>
+      </Switch>
     </div>
   );
 }

@@ -1,26 +1,28 @@
 import React from 'react';
 import './Form.css';
+import { useHistory } from "react-router-dom";
 import RememberCheckbox from '../RememberCheckbox/RememberCheckbox';
+import { Redirect } from "react-router-dom";
 
 export default function Form() {
+  const history = useHistory();
   const [height, setHeight] = React.useState('');
   const [weight, setWeight] = React.useState('');
-  const [bmi, setBmi] = React.useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
   const handleRememberChecked = (e) => {
-    let initalWeight = 0;
+    let initialWeight = 0;
     let initialHeight = 0;
 
     if (e) {
-      initalWeight = localStorage.getItem('userWeight') || 0;
+      initialWeight = localStorage.getItem('userWeight') || 0;
       initialHeight = localStorage.getItem('userHeight') || 0;
     }
 
-    setWeight(initalWeight);
+    setWeight(initialWeight);
     setHeight(initialHeight);
   };
 
@@ -33,10 +35,9 @@ export default function Form() {
   };
 
   const bmiCalculate = () => {
-    const calculated = Math.floor(weight / Math.pow(height, 2) * 10000);
-    setBmi(calculated);
-
-    alert(`Body Mass Index: ${bmi}`);
+    const calculatedValue = Math.floor(weight / Math.pow(height, 2) * 10000);
+    localStorage.setItem('result', calculatedValue);
+    return  history.replace("/result")
   }
 
   const saveUserData = () => {
