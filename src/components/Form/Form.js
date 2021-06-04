@@ -2,7 +2,6 @@ import React from 'react';
 import './Form.css';
 import { useHistory } from "react-router-dom";
 import RememberCheckbox from '../RememberCheckbox/RememberCheckbox';
-import { Redirect } from "react-router-dom";
 
 export default function Form() {
   const history = useHistory();

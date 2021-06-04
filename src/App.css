@@ -2,8 +2,7 @@
  padding-top: 20px;
 }
 .App {
-  width: 800px;
-  height: max-content;
+  height: 450px;
   margin: 0 auto;
   background-color: gainsboro;
   border-radius: 20px;
@@ -17,5 +16,7 @@
 .App-title {
   text-align: center;
   margin-top: revert;
+  top: 200px;
+  padding-top: 0px;
 }
 
