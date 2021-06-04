@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Form from './components/Form';
+import Form from './components/Form/Form';
 
 function App() {
   const [height, setHeight] = React.useState('');
@@ -25,10 +25,10 @@ function App() {
     setBmi(newBmi);
     console.log(bmi);
   }
-  function handleRemember() {
-    !remember ? setRemember(true) : setRemember(false)
-  }
 
+  function handleRemember() {
+    setRemember(!remember)
+  }
 
   return (
     <div className="App container">

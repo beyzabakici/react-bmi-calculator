@@ -1,6 +1,6 @@
 import React from 'react';
 import './Form.css';
-import RememberButton from './RememberButton/RememberButton';
+import RememberCheckbox from '../RememberCheckbox/RememberCheckbox';
 
 export default function Form({ heightInput, onHeightInputChange, weightInput, onWeightInputChange, addValue, rememberData }) {
 
@@ -42,7 +42,7 @@ export default function Form({ heightInput, onHeightInputChange, weightInput, on
         <button onClick={addValue, writeUserData} className="btn btn-outline-primary">
           Calculate !
       </button>
-        <RememberButton isMarked={rememberData}/>
+        <RememberCheckbox isMarked={rememberData}/>
       </div>
     </form>
   )
